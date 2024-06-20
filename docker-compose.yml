@@ -1,0 +1,18 @@
+version: "3.12"
+
+services:
+  chat-service:
+    build:
+      context: ./chat_service
+      dockerfile: Dockerfile
+    ports:
+      - "6789:6789"
+    depends_on:
+      - user-service
+
+  user-service:
+    build:
+      context: ./user_service
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5000"
